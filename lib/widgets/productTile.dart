@@ -9,6 +9,7 @@ class ProductTile extends StatelessWidget {
   final String productName;
   final String productName2;
   final String prix = '12,50';
+  var list = [Text('a'),Text('b'),Text('c')];
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +42,56 @@ class ProductTile extends StatelessWidget {
               content: Column(
                 children: [
                   const Text('Unité EMB. PERDU 6x1,50'),
-              //   Row(
-              //   children: [
-              //     CupertinoPicker(itemExtent: 10, onSelectedItemChanged: (value){}, children: []),
-              //
-              //   ],
-              // ),
+                Row(
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                        width:double.infinity,
+                        height:200,
+                        child: CupertinoPicker(
+
+                          itemExtent: 30,
+                          onSelectedItemChanged: (value){},
+                          looping: true,
+                          useMagnifier: true,
+                          magnification: 1.2,
+                          children: const [
+                            Text(
+                              '1',
+                              style: TextStyle(
+                                  color: Colors.black
+                              ),
+                            ),
+
+                          ],
+                        )
+                    ),
+                  ),
+                  Expanded(
+                    child: SizedBox(
+                        width:double.infinity,
+                        height:200,
+                        child: CupertinoPicker(
+                          looping: true,
+                          useMagnifier: true,
+                          itemExtent: 30,
+                          magnification: 1.2,
+                          onSelectedItemChanged: (value){},
+                          children: const [
+                                Text(
+                                    '123€',
+                                    style: TextStyle(
+                                      color: Colors.black
+                                    ),
+                                  ),
+
+                          ],
+                        )
+                    ),
+                  ),
+
+                ],
+              ),
                   TextButton(
                     onPressed: (){},
                     style: ButtonStyle(
