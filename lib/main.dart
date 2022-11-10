@@ -7,7 +7,7 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: defaultTheme,
-    home: Home()
+    home: const Home()
   ));
 }
 

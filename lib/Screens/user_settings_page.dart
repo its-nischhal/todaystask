@@ -7,7 +7,7 @@ import '../widgets/options.dart';
 import '../widgets/small_options.dart';
 
 class UserSettings extends StatelessWidget {
-  UserSettings({Key? key}) : super(key: key);
+  const UserSettings({Key? key}) : super(key: key);
 
 
   @override
@@ -51,12 +51,12 @@ class UserSettings extends StatelessWidget {
 
             ),
 
-            Options('Sauvegarder mes préférences',blueColor),
+            Options('Sauvegarder mes préférences',blueColor,(){}),
             MultipleOptions(),
             SmallOptions('Mentions légales'),
             SmallOptions('Vie privée'),
             SmallOptions('Conditions générales'),
-            Options('Logout', redColor)
+            Options('Logout', redColor,(){})
           ],
         ),
       ),

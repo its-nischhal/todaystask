@@ -1,8 +1,8 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:untitled1/Screens/shop_page.dart';
 import 'package:untitled1/constants.dart';
-
 import '../widgets/options.dart';
 
 class HomePage extends StatefulWidget {
@@ -34,9 +34,9 @@ class _HomePageState extends State<HomePage> {
             viewportFraction: 1,
           ),
         ),
-        Options('Livraison',blueColor),
-        Options('Drive-In',blueColor),
-        Options('Promotions',blueColor)
+        Options('Livraison',blueColor,(){Navigator.push(context,MaterialPageRoute(builder: (context){return ShopHome();}));}),
+        Options('Drive-In',blueColor,(){}),
+        Options('Promotions',blueColor,(){})
       ],
     );
   }
