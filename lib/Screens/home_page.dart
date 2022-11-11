@@ -34,8 +34,8 @@ class _HomePageState extends State<HomePage> {
             viewportFraction: 1,
           ),
         ),
-        Options('Livraison',blueColor,(){Navigator.push(context,MaterialPageRoute(builder: (context){return ShopHome();}));}),
-        Options('Drive-In',blueColor,(){}),
+        Options('Livraison',blueColor,(){}),
+        Options('Drive-In',blueColor,(){Navigator.push(context,MaterialPageRoute(builder: (context){return ShopHome();}));}),
         Options('Promotions',blueColor,(){})
       ],
     );
