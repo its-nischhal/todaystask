@@ -15,6 +15,32 @@ class ShopHome extends StatefulWidget {
 }
 
 class _ShopHomeState extends State<ShopHome> {
+  String filter = '';
+
+  Widget getProductTile(int index) {
+    if (productData[index]['productName'].toString().contains(filter)) {
+      return Column(
+        children: [
+          ProductTile(
+            productImage: productData[index]['productImage'].toString(),
+            productId: productData[index]['productId'].toString(),
+            productName: productData[index]['productName'].toString(),
+            productName2: productData[index]['productName2'].toString(),
+            callback: () => setState(() {}),
+          ),
+          const Divider(
+            color: Colors.black54,
+            thickness: 2,
+            indent: 15,
+            endIndent: 15,
+          )
+        ],
+      );
+    } else {
+      return Container();
+    }
+  }
+
   Widget cart() {
     if (CartData.cartData.isNotEmpty) {
       return CartTile();
@@ -39,6 +65,10 @@ class _ShopHomeState extends State<ShopHome> {
             child: SizedBox(
               height: 36,
               child: CupertinoTextField(
+                onChanged: (value) {
+                  filter = value;
+                  setState(() {});
+                },
                 padding: EdgeInsets.all(5),
                 prefix: Padding(
                   child: Icon(
@@ -65,19 +95,7 @@ class _ShopHomeState extends State<ShopHome> {
               itemCount: 6,
               itemBuilder: (BuildContext context, int index) {
                 return Column(children: [
-                  ProductTile(
-                    productImage: productData[index]['productImage'].toString(),
-                    productId: productData[index]['productId'].toString(),
-                    productName: productData[index]['productName'].toString(),
-                    productName2: productData[index]['productName2'].toString(),
-                    callback: () => setState(() {}),
-                  ),
-                  const Divider(
-                    color: Colors.black54,
-                    thickness: 2,
-                    indent: 15,
-                    endIndent: 15,
-                  )
+                  getProductTile(index),
                 ]);
               },
             ),
