@@ -4,10 +4,11 @@ import 'package:untitled1/constants.dart';
 import 'package:untitled1/data/cart_data.dart';
 
 class CartTile extends StatelessWidget {
-  const CartTile({Key? key}) : super(key: key);
+  CartTile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var _mediaQuery = MediaQuery.of(context);
     return Container(
       color: blueColor,
       height: 100,
@@ -47,39 +48,43 @@ class CartTile extends StatelessWidget {
                   ],
                 ),
               )),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Expanded(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Row(
-                  children: [
-                    const Text(
-                      'Total TVAC:',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    Text(
-                      CartData.totalPriceAfterTax(),
-                      style: const TextStyle(
-                          fontSize: 20,
-                          color: Color(0xFFF26B6B),
-                          fontWeight: FontWeight.bold),
-                    )
-                  ],
-                ),
-                TextButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15))),
-                        backgroundColor:
-                            MaterialStateProperty.all(const Color(0xFFF26B6B)),
-                        fixedSize: MaterialStateProperty.all(Size(180, 42))),
-                    child: const Text('Confirmer'))
-              ],
-            )),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      const Text(
+                        'Total TVAC:',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      Expanded(
+                        child: Text(
+                          CartData.totalPriceAfterTax(),
+                          style: const TextStyle(
+                              fontSize: 20,
+                              color: Color(0xFFF26B6B),
+                              fontWeight: FontWeight.bold),
+                        ),
+                      )
+                    ],
+                  ),
+                  TextButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                          shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15))),
+                          backgroundColor: MaterialStateProperty.all(
+                              const Color(0xFFF26B6B)),
+                          fixedSize: MaterialStateProperty.all(Size(180, 42))),
+                      child: const Text('Confirmer'))
+                ],
+              ),
+            ),
           )
         ],
       ),
