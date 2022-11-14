@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
-const defaultAppBarTheme=AppBarTheme(
-backgroundColor: Color(0xFF003980),
-foregroundColor: Color(0xFFFFFFFF));
+const defaultAppBarTheme = AppBarTheme(
+    backgroundColor: Color(0xFF003980), foregroundColor: Color(0xFFFFFFFF));
 
 var defaultTheme = ThemeData.light().copyWith(
-appBarTheme: defaultAppBarTheme,
+  appBarTheme: defaultAppBarTheme,
 );
 
 Color textFieldColor = const Color(0xFF767680).withOpacity(.12);

@@ -26,14 +26,15 @@ class _ShopHomeState extends State<ShopHome> {
             productId: productData[index]['productId'].toString(),
             productName: productData[index]['productName'].toString(),
             productName2: productData[index]['productName2'].toString(),
+            index: index,
             callback: () => setState(() {}),
           ),
-          const Divider(
-            color: Colors.black54,
-            thickness: 2,
-            indent: 15,
-            endIndent: 15,
-          )
+          // const Divider(
+          //   color: Colors.black54,
+          //   thickness: 2,
+          //   indent: 15,
+          //   endIndent: 15,
+          // )
         ],
       );
     } else {
@@ -69,20 +70,20 @@ class _ShopHomeState extends State<ShopHome> {
                   filter = value;
                   setState(() {});
                 },
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 prefix: Padding(
+                  padding: EdgeInsets.all(8),
                   child: Icon(
                     CupertinoIcons.search,
                     color: textFieldIconColor,
                   ),
-                  padding: EdgeInsets.all(8),
                 ),
                 suffix: Padding(
+                    padding: EdgeInsets.all(5),
                     child: Icon(
                       CupertinoIcons.mic_fill,
                       color: textFieldIconColor,
-                    ),
-                    padding: EdgeInsets.all(5)),
+                    )),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: textFieldColor,
@@ -92,11 +93,36 @@ class _ShopHomeState extends State<ShopHome> {
           ),
           Expanded(
             child: ListView.builder(
-              itemCount: 6,
+              itemCount: productData.length,
               itemBuilder: (BuildContext context, int index) {
-                return Column(children: [
-                  getProductTile(index),
-                ]);
+                final item = productData[index];
+                return Dismissible(
+                  direction: DismissDirection.endToStart,
+                  background: Container(
+                    color: Colors.red,
+                    alignment: Alignment.centerRight,
+                    child: const Padding(
+                      padding: EdgeInsets.only(right: 15),
+                      child: Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                    ),
+                  ),
+                  key: ValueKey(item),
+                  onDismissed: (direction) {
+                    CartData.updateCartData(
+                        productData[index]['productId'].toString(), 0);
+                    var temp = productData[index];
+                    productData.removeAt(index);
+                    productData.add(temp);
+                    setState(() {});
+                  },
+                  child: Column(children: [
+                    getProductTile(index),
+                  ]),
+                );
               },
             ),
           ),

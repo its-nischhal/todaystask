@@ -32,7 +32,6 @@ class _AddToCartWidgetState extends State<AddToCartWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
     getPrice();
   }
 

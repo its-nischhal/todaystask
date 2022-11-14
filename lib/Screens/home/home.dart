@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:untitled1/Screens/user_settings_page.dart';
+import 'package:untitled1/Screens/user_setting/user_settings_page.dart';
 import 'package:untitled1/widgets/appbar.dart';
 
 import 'home_page.dart';

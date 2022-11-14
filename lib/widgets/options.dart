@@ -12,14 +12,15 @@ class Options extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(15.0),
-      child: TextButton(
+      child: ElevatedButton(
         onPressed: onpressed,
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20))),
+            backgroundColor: MaterialStateProperty.all(color),
+            foregroundColor: MaterialStateProperty.all(color)),
         child: Container(
           height: 71,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: color,
-          ),
           child: Center(
             child: Text(
               text,

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled1/Screens/drive_in/livraison_confirm.dart';
 import 'package:untitled1/constants.dart';
 import 'package:untitled1/data/cart_data.dart';
 
@@ -8,7 +9,6 @@ class CartTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _mediaQuery = MediaQuery.of(context);
     return Container(
       color: blueColor,
       height: 100,
@@ -73,7 +73,12 @@ class CartTile extends StatelessWidget {
                     ],
                   ),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return ConfirmPage();
+                        }));
+                      },
                       style: ButtonStyle(
                           shape: MaterialStateProperty.all(
                               RoundedRectangleBorder(

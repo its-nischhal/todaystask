@@ -11,6 +11,7 @@ class ProductTile extends StatefulWidget {
       required this.productId,
       required this.productName,
       required this.productName2,
+      required this.index,
       Key? key,
       required this.callback})
       : super(key: key);
@@ -19,6 +20,7 @@ class ProductTile extends StatefulWidget {
   final String productName;
   final String productName2;
   final Function() callback;
+  final int index;
 
   @override
   State<ProductTile> createState() => _ProductTileState();
@@ -30,7 +32,7 @@ class _ProductTileState extends State<ProductTile> {
     if (CartData.cartData.containsKey(widget.productId)) {
       return Text(
         '${CartData.cartData[widget.productId].toString()}x',
-        style: TextStyle(
+        style: const TextStyle(
             color: Colors.red, fontWeight: FontWeight.bold, fontSize: 20),
       );
     } else {
