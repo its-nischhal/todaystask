@@ -29,12 +29,12 @@ class _ShopHomeState extends State<ShopHome> {
             index: index,
             callback: () => setState(() {}),
           ),
-          // const Divider(
-          //   color: Colors.black54,
-          //   thickness: 2,
-          //   indent: 15,
-          //   endIndent: 15,
-          // )
+          const Divider(
+            color: Colors.black54,
+            thickness: 2,
+            indent: 15,
+            endIndent: 15,
+          )
         ],
       );
     } else {
