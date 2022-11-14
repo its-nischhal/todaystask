@@ -116,7 +116,7 @@ class _ShopHomeState extends State<ShopHome> {
                         productData[index]['productId'].toString(), 0);
                     var temp = productData[index];
                     productData.removeAt(index);
-                    productData.insert(index, temp);
+                    productData.add(temp);
                     setState(() {});
                   },
                   child: Column(children: [

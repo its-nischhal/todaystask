@@ -6,8 +6,15 @@ import 'package:untitled1/widgets/MyTextField.dart';
 import 'package:untitled1/widgets/appbar.dart';
 import 'package:untitled1/widgets/options.dart';
 
-class LivraisonSignUp extends StatelessWidget {
-  const LivraisonSignUp({Key? key}) : super(key: key);
+class LivraisonSignUp extends StatefulWidget {
+  LivraisonSignUp({Key? key}) : super(key: key);
+
+  @override
+  State<LivraisonSignUp> createState() => _LivraisonSignUpState();
+}
+
+class _LivraisonSignUpState extends State<LivraisonSignUp> {
+  bool cuptertinoIconValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +53,13 @@ class LivraisonSignUp extends StatelessWidget {
               children: [
                 Expanded(
                     flex: 2,
-                    child:
-                        CupertinoSwitch(value: false, onChanged: (value) {})),
+                    child: CupertinoSwitch(
+                        value: cuptertinoIconValue,
+                        onChanged: (value) {
+                          setState(() {
+                            cuptertinoIconValue = value;
+                          });
+                        })),
                 const Expanded(
                   flex: 9,
                   child: Text(
